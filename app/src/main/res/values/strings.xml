@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">ShoeStore</string>
+    <string name="welcome_text">Welcome to the world of shoes</string>
+    <string name="ContinueText">Continue</string>
+    <string name="ImageContentDescription">Shoe Store Image</string>
+    <string name="InstructionText">Instructions</string>
+    <string name="InstructionTitle">Please click next to continue</string>
+    <string name="InstructionDetails">you can choose your favourite shoe from our list</string>
+    <string name="nextBtn">Next</string>
+    <string name="LoginText">Login</string>
+    <string name="EmailText">Email</string>
+    <string name="Password">Password</string>
+    <string name="RegisterText">Register</string>
+</resources>
