@@ -11,4 +11,15 @@
     <string name="EmailText">Email</string>
     <string name="Password">Password</string>
     <string name="RegisterText">Register</string>
+    <string name="NameLabel">Name</string>
+    <string name="CompanyLabel">Company</string>
+    <string name="SizeLabel">Size</string>
+    <string name="DescriptionLabel">Description</string>
+    <string name="ShoeName">Shoe Name</string>
+    <string name="ShoeDescription">Shoe Description</string>
+    <string name="ShoeCompany">ShoeCompany</string>
+    <string name="ShoeSize">Shoe Size</string>
+    <string name="SaveBtn">Save</string>
+    <string name="cancelBtn">Cancel</string>
+
 </resources>

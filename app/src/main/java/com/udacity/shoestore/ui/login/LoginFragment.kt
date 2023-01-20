@@ -49,7 +49,7 @@ class LoginFragment : Fragment() {
         viewModel.state.observe(this as LifecycleOwner, Observer { newState ->
             when (newState) {
                 LoginState.LoggedIn -> {
-                    navigateToShoeList()
+                    navigateToWelcome()
                     viewModel.onEventAuthComplete()
                 }
                 LoginState.Registered -> {

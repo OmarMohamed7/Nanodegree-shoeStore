@@ -11,7 +11,8 @@ enum class State {
 }
 
 class ShoeViewModel : ViewModel() {
-    private var _shoelList = MutableLiveData<MutableList<Shoe>>()
+    var items = mutableListOf(Shoe("test" , 42.0 , "Company1" , "this is a test description" , listOf<String>("test1")), Shoe("test2" , 45.5 , "Company2" , "this is a test2 description" , listOf<String>("test2")))
+    private var _shoelList = MutableLiveData<MutableList<Shoe>>(mutableListOf())
     val shoeList: LiveData<MutableList<Shoe>>
         get() = _shoelList
 
@@ -21,7 +22,23 @@ class ShoeViewModel : ViewModel() {
 
     init {
         Timber.i("ShoeViewModel called")
-        _shoelList.value = mutableListOf()
+    }
+
+
+    private fun addShoe(name:String, size: Double, company: String, description:String, images:List<String> ){
+        Timber.i("Inserting a new shoe")
+        val item = Shoe(name , size ,company , description , mutableListOf())
+        _shoelList.value?.add(item)
+    }
+
+    fun onEventSave(name:String , size: Double , company:String , description: String){
+        Timber.i("onEventSave")
+        addShoe(name,size , company , description , listOf())
+        _state.value = State.Saved
+    }
+
+    fun onEventSaveComplete(){
+        _state.value = State.None
     }
 
 }
