@@ -1,25 +1,28 @@
 package com.udacity.shoestore.ui.shoeList
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
+import androidx.core.view.MenuHost
+import androidx.core.view.MenuProvider
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.NavigationUI
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.ShoeItemBinding
 import com.udacity.shoestore.databinding.ShoeListFragmentBinding
 import com.udacity.shoestore.models.ShoeViewModel
+import timber.log.Timber
 
 class ShoeListFragment :Fragment(){
 
     private val viewModel : ShoeViewModel by activityViewModels()
-
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -40,6 +43,24 @@ class ShoeListFragment :Fragment(){
             }
         })
 
+
+
+
+        val menuHost: MenuHost = requireActivity()
+
+        menuHost.addMenuProvider(object : MenuProvider {
+            override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
+                menuInflater.inflate(R.menu.list_menu, menu)
+
+            }
+
+            override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
+
+                return false;
+            }
+
+        } , viewLifecycleOwner , Lifecycle.State.RESUMED)
+//
         binding.addShoeFAB.setOnClickListener{
             val action = ShoeListFragmentDirections.actionShoeListFragmentToAddShoeFragment()
             findNavController().navigate(action)
@@ -47,4 +68,5 @@ class ShoeListFragment :Fragment(){
 
         return binding.root
     }
+
 }

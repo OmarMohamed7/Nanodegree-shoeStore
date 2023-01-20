@@ -21,5 +21,6 @@
     <string name="ShoeSize">Shoe Size</string>
     <string name="SaveBtn">Save</string>
     <string name="cancelBtn">Cancel</string>
+    <string name="LogoutMenuItem">Logout</string>
 
 </resources>

@@ -3,9 +3,11 @@ package com.udacity.shoestore
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.LifecycleOwner
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 import com.udacity.shoestore.databinding.ActivityMainBinding
+import com.udacity.shoestore.ui.shoeList.ShoeListFragmentDirections
 import timber.log.Timber
 
 class MainActivity : AppCompatActivity() {
@@ -26,15 +28,15 @@ class MainActivity : AppCompatActivity() {
 //        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 //        supportActionBar?.setDisplayShowHomeEnabled(true)
         val navController = findNavController(R.id.fragmentContainerView)
-
+//
         NavigationUI.setupActionBarWithNavController(this , navController)
-
-
+//
+//
         binding.toolbar.setOnMenuItemClickListener{ item ->
+            Timber.i(item.toString())
             when(item.itemId){
-                R.id.loginFragment -> {
-                    navController.navigateUp()
-                    navController.navigate(R.id.loginFragment)
+                R.id.gotoLogin -> {
+                    navController.navigate(ShoeListFragmentDirections.actionShoeListFragmentToLoginFragment())
                     true
                 }
                 else -> false

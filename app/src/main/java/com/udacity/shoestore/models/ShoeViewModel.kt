@@ -41,4 +41,12 @@ class ShoeViewModel : ViewModel() {
         _state.value = State.None
     }
 
+    override fun onCleared() {
+        Timber.i("On cleared ")
+        _shoelList.value?.clear()
+        super.onCleared()
+
+
+    }
+
 }
